@@ -45,11 +45,18 @@ public class PetDao {
     public Pet find(Long id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        TypedQuery<Pet> query = em.createQuery("FROM Pet WHERE id=:id", Pet.class);
-        query.setParameter("id", id);
-        Pet pet = query.getSingleResult();
+        Pet pet = em.find(Pet.class, id);
         em.getTransaction().commit();
         em.close();
         return pet;
+    }
+
+    public void delete(Long id) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Pet pet = em.find(Pet.class, id);
+        em.remove(pet);
+        em.getTransaction().commit();
+        em.close();
     }
 }

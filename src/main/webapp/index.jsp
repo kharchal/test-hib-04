@@ -26,12 +26,14 @@
         <th width="20">ID</th>
         <th width="100">NAME</th>
         <th width="400">NOTE</th>
+        <th>ACTION</th>
       </tr>
       <c:forEach var="p" items="${pets}">
         <tr>
           <td><a href="/edit?id=${p.id}">${p.id}</a></td>
           <td>${p.name}</td>
           <td>${p.note}</td>
+          <td><a href="/delete?id=${p.id}">DELETE</a></td>
         </tr>
       </c:forEach>
     </table>
