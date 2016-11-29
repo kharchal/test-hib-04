@@ -1,0 +1,10 @@
+CREATE TABLE hibernate_sequence
+(
+  next_val BIGINT
+);
+CREATE TABLE pets
+(
+  id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(10) NOT NULL,
+  note VARCHAR(100)
+);
